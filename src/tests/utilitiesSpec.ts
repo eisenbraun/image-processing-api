@@ -1,5 +1,4 @@
 import fs from 'fs'
-import {promises as fsPromises} from 'fs';
 import utilities from "../utilities";
 
 
@@ -75,7 +74,9 @@ describe('testing resizeImage', () => {
         expect(data.height).toEqual(heightNumber)
 
         // remove thumbnail image
-        fsPromises.rm(utilities.thumbImagePath(filename, widthNumber, heightNumber))
+        fs.rm(utilities.thumbImagePath(filename, widthNumber, heightNumber), () => {
+          console.log('Test image was deleted')
+        })
       }) 
   })
 
@@ -85,7 +86,9 @@ describe('testing resizeImage', () => {
         expect(data.width).toEqual(widthNumber)
 
         // remove thumbnail image
-        fsPromises.rm(utilities.thumbImagePath(filename, widthNumber))
+        fs.rm(utilities.thumbImagePath(filename, widthNumber), () => {
+          console.log('Test image was deleted')
+        })
       }) 
   })
 
@@ -96,7 +99,9 @@ describe('testing resizeImage', () => {
         expect(data.height).toEqual(heightNumber)
 
         // remove thumbnail image
-        fsPromises.rm(utilities.thumbImagePath(filename, null, heightNumber))
+        fs.rm(utilities.thumbImagePath(filename, null, heightNumber), () => {
+          console.log('Test image was deleted')
+        })
       }) 
   })
 
@@ -107,7 +112,9 @@ describe('testing resizeImage', () => {
         expect(data.height).toEqual(parseInt(heightString))
 
         // remove thumbnail image
-        fsPromises.rm(utilities.thumbImagePath(filename, widthString, heightString))
+        fs.rm(utilities.thumbImagePath(filename, widthString, heightString), () => {
+          console.log('Test image was deleted')
+        })
       }) 
   })
 
@@ -117,7 +124,9 @@ describe('testing resizeImage', () => {
         expect(data.width).toEqual(parseInt(widthString))
 
         // remove thumbnail image
-        fsPromises.rm(utilities.thumbImagePath(filename, widthNumber))
+        fs.rm(utilities.thumbImagePath(filename, widthNumber), () => {
+          console.log('Test image was deleted')
+        })
       }) 
   })
 
@@ -128,7 +137,9 @@ describe('testing resizeImage', () => {
         expect(data.height).toEqual(parseInt(heightString))
 
         // remove thumbnail image
-        fsPromises.rm(utilities.thumbImagePath(filename, null, heightString))
+        fs.rm(utilities.thumbImagePath(filename, null, heightString), () => {
+          console.log('Test image was deleted')
+        })
       }) 
   })
 })
