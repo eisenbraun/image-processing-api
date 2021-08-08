@@ -1,2 +1,30 @@
-# image-processing-api
-This repository contains the Image Processing API create for the Full Stack JavaScript Developer Nanodegree Program.
+# Image Processing API
+## Michael Eisenbraun
+
+### Projet Setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Runs unit tests
+```
+npm run test
+```
+
+### Lints files
+```
+npm run lint
+```
+
+
+
