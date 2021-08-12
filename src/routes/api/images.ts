@@ -1,17 +1,16 @@
-import express from 'express'
+import express, { Router, Request, Response } from 'express'
 import fs from 'fs'
 import utilities from '../../utilities'
 
 
-const images = express.Router()
+const images: Router = express.Router()
 
-images.get('/', (req, res) => {
+images.get('/', (req: Request, res: Response) => {
   const { filename, width, height } = req.query
 
   fs.access(utilities.fullImagePath(filename as string), fs.constants.F_OK, (err) => {
     if (err) {
-      // no full image to convert
-      res.send('No image found.')
+      res.status(400).send('Bad Request')
     } else {
       fs.access(utilities.thumbImagePath(filename as string, width as string, height as string), fs.constants.F_OK, (err) => {
         if (err) {
