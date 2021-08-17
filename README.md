@@ -23,7 +23,7 @@ npm run test
 
 ### Lints files
 ```
-npm run lint
+npm run lint 
 ```
 
 ## Usage
